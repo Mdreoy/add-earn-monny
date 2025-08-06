@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Earn money online by watching ads and completing tasks. Withdraw easily via Bkash or Nagad." />
+  <meta name="keywords" content="earn money, make money online, task earn, bkash withdraw, nagad payment" />
+  <meta name="author" content="Md Redoy" />
+  <title>Earn Money Online</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>💰 Earn Money Platform</h1>
+    <nav>
+      <a href="#profile">Profile</a>
+      <a href="#withdraw">Withdraw</a>
+      <a href="#history">History</a>
+    </nav>
+  </header>
+
+  <!-- Profile Section -->
+  <section id="profile">
+    <h2>👤 Profile Information</h2>
+    <form id="profileForm">
+      <label>Full Name:
+        <input type="text" id="name" value="Md Redoy" />
+      </label>
+      <label>Email:
+        <input type="email" id="email" value="example@gmail.com" />
+      </label>
+      <label>Phone:
+        <input type="text" id="phone" value="01XXXXXXXXX" />
+      </label>
+      <button type="submit">Update Profile</button>
+    </form>
+  </section>
+
+  <!-- Withdraw Section -->
+  <section id="withdraw">
+    <h2>💳 Request Withdraw</h2>
+    <form id="withdrawForm">
+      <label>Method:
+        <select id="method">
+          <option value="bkash">Bkash</option>
+          <option value="nagad">Nagad</option>
+        </select>
+      </label>
+      <label>Mobile Number:
+        <input type="text" id="withdrawNumber" placeholder="01XXXXXXXXX" />
+      </label>
+      <label>Amount (৳):
+        <input type="number" id="withdrawAmount" placeholder="Enter amount" />
+      </label>
+      <button type="submit">Submit Withdraw</button>
+    </form>
+  </section>
+
+  <!-- History Section -->
+  <section id="history">
+    <h2>📜 Withdraw History</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Method</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2025-08-01</td>
+          <td>Bkash</td>
+          <td>150৳</td>
+          <td><span class="paid">Paid</span></td>
+        </tr>
+        <tr>
+          <td>2025-08-03</td>
+          <td>Nagad</td>
+          <td>300৳</td>
+          <td><span class="pending">Pending</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>© 2025 | Developed by Md Redoy</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f9fb;
+}
+
+header {
+  background-color: #2e86de;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+section {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+form input,
+form select {
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #28a745;
+  color: white;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th,
+td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.paid {
+  color: green;
+  font-weight: bold;
+}
+
+.pending {
+  color: orange;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  background: #333;
+  color: white;
+  padding: 15px;
+  margin-top: 20px;
+}
+// Handle Profile Update
+document.getElementById("profileForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  alert("✅ Profile updated successfully!");
+});
+
+// Handle Withdraw Request
+document.getElementById("withdrawForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const method = document.getElementById("method").value;
+  const number = document.getElementById("withdrawNumber").value;
+  const amount = document.getElementById("withdrawAmount").value;
+
+  if (!number || !amount) {
+    alert("❌ Please fill all fields.");
+    return;
+  }
+
+  alert(`✅ Withdraw request submitted via ${method.toUpperCase()} for ৳${amount}`);
+});
